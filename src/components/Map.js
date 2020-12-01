@@ -5,7 +5,9 @@ import { useState } from 'react'
 
 const Map = ({ eventData, center, zoom }) => {
     const [locationInfo, setLocationInfo] = useState(null)
-    
+    const api_key = process.env.REACT_APP_API_KEY
+
+
     const markers = eventData.map(ev => {
         if(ev.categories[0].id === 8){
             return <LocationMarker
@@ -22,7 +24,7 @@ const Map = ({ eventData, center, zoom }) => {
     return (
         <div className="map">
             <GoogleMapReact
-                bootstrapURLKeys={{ key: 'AIzaSyD3b2PhiPsuFxDqyK6HGEUg2LJkDhdeR1M'}}
+                bootstrapURLKeys={{ key: api_key }}
                 defaultCenter={ center }
                 defaultZoom= { zoom }
 
